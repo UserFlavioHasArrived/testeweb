@@ -70,5 +70,22 @@ class TesteApplicationTests {
 
 
 	}
+	@Test
+	public void entrarLeiloes() {
+		//pasta onde está o drive
+		System.setProperty("wedriver.chrome.driver", "c:\\drive\\chromedriver.exe");
+		//Criar um objeto webdriver para acessar o navegador
+		WebDriver navegador = new ChromeDriver();
+		//Informarnotempo maximo de resposta
+		navegador.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//Informar o endereço que quer abrir
+		navegador.get("http://localhost:8081/login");
+		//Encontrando o elemento email e pass
+		navegador.findElement(By.name("username")).sendKeys("fulano");
+		navegador.findElement(By.name("password")).sendKeys("pass");
+		//Encontrando o botão entrar
+		navegador.findElement(By.id("Entrar")).click();
+		//Botão de clicar
+	}
 }
 
